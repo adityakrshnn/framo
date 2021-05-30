@@ -1,6 +1,6 @@
 {
   "name": "framo",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Awesome on-the-fly features using FFmpeg WASM",
   "author": "Aditya Krishnan <adityakrshnn@gmail.com>",
   "repository": "https://github.com/adityakrshnn/framo",
