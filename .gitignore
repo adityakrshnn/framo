@@ -8,5 +8,6 @@
 .DS_Store
 coverage
 *.log
-/.yarn/
+/.yarn/cache
+/.yarn/unplugged
 /.vscode/
