@@ -6,11 +6,11 @@
   "repository": "https://github.com/adityakrshnn/framo",
   "license": "MIT",
   "keywords": [
+    "filmstrip",
+    "frame extraction",
+    "ffmpeg",
     "framo",
-    "media",
-    "utilities",
-    "wasm",
-    "ffmpeg"
+    "wasm"
   ],
   "main": "./dist/tsc/main.js",
   "types": "./dist/tsc/browser.d.ts",
