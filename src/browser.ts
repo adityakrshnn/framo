@@ -3,14 +3,26 @@
  * The code executes when loaded in a browser.
  */
 
-import { FrameRequestConfig, FrameExtractorFileType } from "./models/frame-extractor.model";
+import {
+  FrameRequestConfig,
+  FrameExtractorFileType,
+} from "./models/frame-extractor.model";
 import { FfmpegService } from "./services/ffmpeg.service";
 import { FrameExtractorService } from "./services/frame-extractor.service";
 
-const ffmpegService = FfmpegService.getInstance()
+const ffmpegService = FfmpegService.getInstance();
 const frameExtractorService = FrameExtractorService.getInstance();
 ffmpegService.initializeFfmpeg();
-export const extractFrames = frameExtractorService.extractFrames;
-export const fetchFile = ffmpegService.fetchFile;
+
 export { FrameRequestConfig, FrameExtractorFileType };
+
+/**
+ * @description Extract frames from a video at specific times or regular intervals
+ */
+export const extractFrames = frameExtractorService.extractFrames;
+
+/**
+ * @description Emits the progress of the operation
+ * @event
+ */
 export const progress = ffmpegService.progress;

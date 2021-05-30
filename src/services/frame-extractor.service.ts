@@ -58,7 +58,7 @@ export class FrameExtractorService {
     const inParameters: string[] = [];
     const outParameters: string[] = [];
     const outputFilenames: string[] = [];
-    const scale = config.dimensions ? Utility.getScale(config.dimensions) : '';
+    const scale = config.resolution ? Utility.getScale(config.resolution) : '';
 
     config.timePoints?.forEach((timePoint, index) => {
       inParameters.push(
@@ -108,7 +108,7 @@ export class FrameExtractorService {
     const videoDuration = await this.getVideoDuration(config.file);
     const interval = config.interval!;
     const rate = (1 / interval ?? 1).toFixed(2);
-    const scale = config.dimensions ? Utility.getScale(config.dimensions) : '';
+    const scale = config.resolution ? Utility.getScale(config.resolution) : '';
     const inParameters = this.getInParametersForIntervalBasedExtraction(config.file.name, rate, scale);
     const outParameters: string[] = [`out_%0${outputFileDigits}d.${config.extension}`];
     const outputFilenames: string[] = [];
