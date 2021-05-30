@@ -60,7 +60,7 @@ export class ScriptService {
           resolve(response);
         };
 
-        script.onerror = (error: Error) => {
+        script.onerror = (error: string | Event) => {
           console.error(error);
           const response: ScriptLoadedResponse = {
             script: name,
