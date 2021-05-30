@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>FrameExtractorFileType | framo</title>
+	<title>FramoImageExtension | framo</title>
 	<meta name="description" content="Documentation for framo">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,10 @@
 					<a href="../modules.html">framo</a>
 				</li>
 				<li>
-					<a href="frameextractorfiletype.html">FrameExtractorFileType</a>
+					<a href="framoimageextension.html">FramoImageExtension</a>
 				</li>
 			</ul>
-			<h1>Enumeration FrameExtractorFileType</h1>
+			<h1>Enumeration FramoImageExtension</h1>
 		</div>
 	</div>
 </header>
@@ -72,8 +72,10 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="frameextractorfiletype.html#file" class="tsd-kind-icon">FILE</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="frameextractorfiletype.html#url" class="tsd-kind-icon">URL</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="framoimageextension.html#bmp" class="tsd-kind-icon">BMP</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="framoimageextension.html#jpeg" class="tsd-kind-icon">JPEG</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="framoimageextension.html#jpg" class="tsd-kind-icon">JPG</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="framoimageextension.html#png" class="tsd-kind-icon">PNG</a></li>
 							</ul>
 						</section>
 					</div>
@@ -82,22 +84,42 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="file" class="tsd-anchor"></a>
-					<h3>FILE</h3>
-					<div class="tsd-signature tsd-kind-icon">FILE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;file&quot;</span></div>
+					<a name="bmp" class="tsd-anchor"></a>
+					<h3>BMP</h3>
+					<div class="tsd-signature tsd-kind-icon">BMP<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;bmp&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/77acb3b/src/models/frame-extractor.model.ts#L5">models/frame-extractor.model.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/2682c76/src/models/generic-ffmpeg.model.ts#L5">models/generic-ffmpeg.model.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="url" class="tsd-anchor"></a>
-					<h3>URL</h3>
-					<div class="tsd-signature tsd-kind-icon">URL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;url&quot;</span></div>
+					<a name="jpeg" class="tsd-anchor"></a>
+					<h3>JPEG</h3>
+					<div class="tsd-signature tsd-kind-icon">JPEG<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;jpeg&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/77acb3b/src/models/frame-extractor.model.ts#L4">models/frame-extractor.model.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/2682c76/src/models/generic-ffmpeg.model.ts#L2">models/generic-ffmpeg.model.ts:2</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="jpg" class="tsd-anchor"></a>
+					<h3>JPG</h3>
+					<div class="tsd-signature tsd-kind-icon">JPG<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;jpg&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/2682c76/src/models/generic-ffmpeg.model.ts#L3">models/generic-ffmpeg.model.ts:3</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="png" class="tsd-anchor"></a>
+					<h3>PNG</h3>
+					<div class="tsd-signature tsd-kind-icon">PNG<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;png&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/2682c76/src/models/generic-ffmpeg.model.ts#L4">models/generic-ffmpeg.model.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -116,13 +138,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum">
-						<a href="frameextractorfiletype.html" class="tsd-kind-icon">Frame<wbr>Extractor<wbr>File<wbr>Type</a>
+						<a href="framoimageextension.html" class="tsd-kind-icon">Framo<wbr>Image<wbr>Extension</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="frameextractorfiletype.html#file" class="tsd-kind-icon">FILE</a>
+								<a href="framoimageextension.html#bmp" class="tsd-kind-icon">BMP</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="frameextractorfiletype.html#url" class="tsd-kind-icon">URL</a>
+								<a href="framoimageextension.html#jpeg" class="tsd-kind-icon">JPEG</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="framoimageextension.html#jpg" class="tsd-kind-icon">JPG</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="framoimageextension.html#png" class="tsd-kind-icon">PNG</a>
 							</li>
 						</ul>
 					</li>
@@ -131,14 +159,11 @@
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/framerequestconfig.html" class="tsd-kind-icon">Frame<wbr>Request<wbr>Config</a>
 					</li>
-					<li class=" tsd-kind-variable">
+					<li class=" tsd-kind-event">
 						<a href="../modules.html#progress" class="tsd-kind-icon">progress</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../modules.html#extractframes" class="tsd-kind-icon">extract<wbr>Frames</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../modules.html#fetchfile" class="tsd-kind-icon">fetch<wbr>File</a>
 					</li>
 				</ul>
 			</nav>
