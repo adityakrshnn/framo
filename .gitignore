@@ -13,3 +13,6 @@ coverage
 /.vscode/
 /.yarn/install-state.gz
 /.yarn/build-state.yml
+
+.npmignore
+.pnp.js

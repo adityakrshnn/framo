@@ -20,16 +20,20 @@ export class FrameExtractorService {
   }
 
   extractFrames = async (config: FrameRequestConfig): Promise<Blob[]> => {
-    await this.ffmpegService.fetchFile(config.filename, config.file);
-    const { parameters, outputFilenames } = await this.getParameters(config);
-    await this.ffmpegService.ffmpeg.run(...parameters);
+    try {
+      await this.ffmpegService.fetchFile(config.filename, config.file);
+      const { parameters, outputFilenames } = await this.getParameters(config);
+      await this.ffmpegService.ffmpeg.run(...parameters);
 
-    const blobs = outputFilenames.map((filename) => {
-      const data = this.ffmpegService.ffmpeg.FS("readFile", filename);
-      return new Blob([data.buffer]);
-    });
+      const blobs = outputFilenames.map((filename) => {
+        const data = this.ffmpegService.ffmpeg.FS("readFile", filename);
+        return new Blob([data.buffer]);
+      });
 
-    return blobs;
+      return blobs;
+    } catch (error) {
+      throw new Error(error)
+    }
   };
 
   async getParameters(

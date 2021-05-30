@@ -8,6 +8,7 @@ declare const FFmpeg;
 export class FfmpegService extends EventTarget {
   private static instance: FfmpegService;
   public ffmpeg;
+  isReady = false;
   progress = new EventTarget();
 
   public static getInstance(): FfmpegService {
@@ -18,13 +19,14 @@ export class FfmpegService extends EventTarget {
     return FfmpegService.instance;
   }
 
-  initializeFfmpeg = async (): Promise<void> => {
+  initializeFramo = async (): Promise<void> => {
     await scripService.loadScript(ScriptNames.FFMPEG);
     this.ffmpeg = FFmpeg.createFFmpeg({
       log: true,
     });
     await this.ffmpeg.load();
     this.initializeProgressForwarding();
+    this.isReady = true;
   };
 
   fetchFile = async (filename: string, file: File | Blob | ArrayBuffer | string): Promise<void> => {

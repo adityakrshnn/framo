@@ -1,28 +1,29 @@
-/**
- * This file is the entrypoint of browser builds.
- * The code executes when loaded in a browser.
- */
-
-import {
-  FrameRequestConfig,
-} from "./models/frame-extractor.model";
+import { Main } from "./main";
+import { FrameRequestConfig } from "./models/frame-extractor.model";
 import { FramoImageExtension } from "./models/generic-ffmpeg.model";
 import { FfmpegService } from "./services/ffmpeg.service";
 import { FrameExtractorService } from "./services/frame-extractor.service";
-
-const ffmpegService = FfmpegService.getInstance();
-const frameExtractorService = FrameExtractorService.getInstance();
-ffmpegService.initializeFfmpeg();
-
 export { FrameRequestConfig, FramoImageExtension };
 
-/**
- * @description Extract frames from a video at specific times or regular intervals
- */
-export const extractFrames = frameExtractorService.extractFrames;
+export class Framo {
+  ffmpegService = FfmpegService.getInstance();
+  frameExtractorService = FrameExtractorService.getInstance();
+  main = new Main();
 
-/**
- * @description Emits the progress of the operation
- * @event
- */
-export const progress = ffmpegService.progress;
+  /**
+   * @description Initialize Framo and its dependencies
+   */
+  initializeFramo = (): Promise<void> => this.main.initializeFramo();
+
+  /**
+   * @description Extract frames from a video at specific times or regular intervals
+   */
+  extractFrames = (config: FrameRequestConfig): Promise<Blob[]> =>
+    this.main.initializationGuard().extractFrames(config);
+
+  /**
+   * @description Emits the progress of the operation
+   * @event
+   */
+  progress = this.ffmpegService.progress;
+}
