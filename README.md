@@ -10,9 +10,11 @@
   <!-- PROJECT SHIELDS -->
   <p align="center">
     <img alt="Framo License" src="https://img.shields.io/npm/l/framo" />
+    <img alt="CodeQL" src="https://github.com/adityakrshnn/framo/actions/workflows/codeql-analysis.yml/badge.svg" />
+    <img alt="Lint & Test" src="https://github.com/adityakrshnn/framo/actions/workflows/lint-and-test.yml/badge.svg" />
     <img alt="Framo bundle size" src="https://img.shields.io/bundlephobia/min/framo"/>
-    <img alt="Framo Maintained yes" src="https://img.shields.io/badge/Maintained-Yes-brightgreen"/>
     <img alt="Framo npm version" src="https://img.shields.io/npm/v/framo"/>
+    <img alt="Framo Maintained yes" src="https://img.shields.io/badge/Maintained-Yes-brightgreen"/>
   </p>
 
   <p align="center">
@@ -85,7 +87,7 @@ _More features coming soon..._
 
 ## Useful events
 
-### Progress
+### ⚡ Progress
 
 Subscribe to the [`progress`](https://adityakrshnn.github.io/framo/modules.html#progress) event to monitor operation progress.
 
