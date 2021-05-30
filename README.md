@@ -12,6 +12,7 @@
 <!-- [![Stargazers][stars-shield]][stars-url] -->
 <!-- [![Issues][issues-shield]][issues-url] -->
 [![MIT License][license-shield]][license-url]
+![Downloads][downloads-shield]
 <!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 
@@ -147,5 +148,6 @@ Project Link: [https://github.com/adityakrshnn/framo](https://github.com/adityak
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[license-shield]: https://img.shields.io/github/license/adityakrshnn/framo.svg?style=for-the-badge
-[license-url]: https://github.com/adityakrshnn/framo/blob/master/LICENSE.txt
+[license-shield]: https://img.shields.io/npm/l/framo
+[license-url]: https://github.com/adityakrshnn/framo/blob/master/LICENSE
+[downloads-shield]: https://img.shields.io/github/downloads/adityakrshnn/framo/total
