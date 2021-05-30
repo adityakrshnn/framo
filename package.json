@@ -49,8 +49,5 @@
     "tslib": "^2.2.0",
     "typedoc": "^0.20.35",
     "typescript": "^4.2.3"
-  },
-  "dependencies": {
-    "events": "^3.3.0"
   }
 }

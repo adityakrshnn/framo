@@ -10,6 +10,9 @@ coverage
 *.log
 .gitlab-ci.yml
 
+/.yarn/cache
+/.yarn/unplugged
+
 package-lock.json
 /*.tgz
 /tmp*
