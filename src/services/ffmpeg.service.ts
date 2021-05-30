@@ -27,8 +27,8 @@ export class FfmpegService extends EventTarget {
     this.initializeProgressForwarding();
   };
 
-  fetchFile = async (file: File) => {
-    this.ffmpeg.FS("writeFile", file.name, await FFmpeg.fetchFile(file));
+  fetchFile = async (filename: string, file: File | Blob | ArrayBuffer | string) => {
+    this.ffmpeg.FS("writeFile", filename, await FFmpeg.fetchFile(file));
   };
 
   initializeProgressForwarding() {

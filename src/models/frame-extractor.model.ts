@@ -1,19 +1,17 @@
 import { FramoDimension as FramoResolution, FramoImageExtension } from "./generic-ffmpeg.model";
 
-export enum FrameExtractorFileType {
-  URL = "url",
-  FILE = "file",
-}
-
 export interface FrameRequestConfig {
-  file: File;
-  /** Mention the image extension of the frame output */
-  extension: FramoImageExtension;
-  /** Frames at regular time intervals in seconds */
+  /** @description File in the form of File, base64 string, Blob, ArrayBuffer, or url */
+  file: File | Blob | ArrayBuffer | string;
+  /** @description Input filename with correct extension */
+  filename: string;
+  /** @description Mention the image extension of the frame output */
+  outputExtension: FramoImageExtension;
+  /** @description Frames at regular time intervals in seconds */
   interval?: number;
-  /** Frames at specific time points in on of ffmpeg's accepted formats https://trac.ffmpeg.org/wiki/Seeking#:~:text=starting%20at%20120s.-,Time%20unit%20syntax,%22%2C%20not%20as%20frame%205. */
+  /** @description Frames at specific time points in ffmpeg's accepted formats https://trac.ffmpeg.org/wiki/Seeking#:~:text=starting%20at%20120s.-,Time%20unit%20syntax,%22%2C%20not%20as%20frame%205. */
   timePoints?: string[];
-  /** Change the resolution of the final output */
+  /** @description Change the resolution of the final output */
   resolution?: FramoResolution;
 }
 

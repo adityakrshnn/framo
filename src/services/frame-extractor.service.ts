@@ -20,7 +20,7 @@ export class FrameExtractorService {
   }
 
   extractFrames = async (config: FrameRequestConfig): Promise<Blob[]> => {
-    await this.ffmpegService.fetchFile(config.file);
+    await this.ffmpegService.fetchFile(config.filename, config.file);
     const { parameters, outputFilenames } = await this.getParameters(config);
     await this.ffmpegService.ffmpeg.run(...parameters);
 
@@ -62,9 +62,9 @@ export class FrameExtractorService {
 
     config.timePoints?.forEach((timePoint, index) => {
       inParameters.push(
-        ...this.getSingleTimeBasedParameter(timePoint, config.file.name)
+        ...this.getSingleTimeBasedParameter(timePoint, config.filename)
       );
-      const outputFilename = this.getOutputFilename(index, config.extension);
+      const outputFilename = this.getOutputFilename(index, config.outputExtension);
       outputFilenames.push(outputFilename);
       outParameters.push(
         ...this.getOutputMappingParameter(index, outputFilename, scale)
@@ -109,12 +109,12 @@ export class FrameExtractorService {
     const interval = config.interval!;
     const rate = (1 / interval ?? 1).toFixed(2);
     const scale = config.resolution ? Utility.getScale(config.resolution) : '';
-    const inParameters = this.getInParametersForIntervalBasedExtraction(config.file.name, rate, scale);
-    const outParameters: string[] = [`out_%0${outputFileDigits}d.${config.extension}`];
+    const inParameters = this.getInParametersForIntervalBasedExtraction(config.filename, rate, scale);
+    const outParameters: string[] = [`out_%0${outputFileDigits}d.${config.outputExtension}`];
     const outputFilenames: string[] = [];
 
     for (let i = interval, j = 1; i <= videoDuration; i += interval, j++) {
-      const outputFilename = this.getOutputFilenameForIntervalBasedParameters(j, config.extension);
+      const outputFilename = this.getOutputFilenameForIntervalBasedParameters(j, config.outputExtension);
       outputFilenames.push(outputFilename);
     }
 
@@ -126,7 +126,7 @@ export class FrameExtractorService {
     return response;
   }
 
-  getVideoDuration(file: File): Promise<number> {
+  getVideoDuration(file: File | Blob | ArrayBuffer | string): Promise<number> {
     return new Promise((resolve, reject) => {
       const video = document.createElement("video");
       video.preload = "metadata";
@@ -140,7 +140,7 @@ export class FrameExtractorService {
         reject(error);
       };
 
-      video.src = URL.createObjectURL(file);
+      video.src = typeof(file) === 'string' ? file : URL.createObjectURL(file);
     });
   }
 
