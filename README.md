@@ -13,7 +13,7 @@
     <img alt="CodeQL" src="https://github.com/adityakrshnn/framo/actions/workflows/codeql-analysis.yml/badge.svg" />
     <img alt="Lint & Test" src="https://github.com/adityakrshnn/framo/actions/workflows/lint-and-test.yml/badge.svg" />
     <img alt="Framo bundle size" src="https://img.shields.io/bundlephobia/min/framo"/>
-    <img alt="Framo npm version" src="https://img.shields.io/npm/v/framo"/>
+    <a href="https://www.npmjs.com/package/framo"><img alt="Framo npm version" src="https://img.shields.io/npm/v/framo"/></a>
     <img alt="Framo Maintained yes" src="https://img.shields.io/badge/Maintained-Yes-brightgreen"/>
   </p>
 
@@ -68,12 +68,26 @@ Framo is made using:
 
 ## Getting Started
 
+### Installation
+
 To use Framo in your project
 
 ```sh
 npm install framo
 ```
 
+### Usage
+Initialize framo with [initializeFramo()](https://adityakrshnn.github.io/framo/classes/framo.html#initializeframo) before using any of its features
+```sh
+const framo = new Framo();
+
+await framo.initializeFramo();
+...
+OR
+framo.initializeFramo().then(() => {
+  ...
+})
+```
 <!-- USAGE EXAMPLES -->
 
 ## Features
