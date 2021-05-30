@@ -29,7 +29,7 @@
   <p align="center">
     Awesome on-the-fly utilities using FFmpeg WASM
     <br />
-    <a href="https://adityakrshnnn.github.io/framo/"><strong>Explore the docs »</strong></a>
+    <a href="https://adityakrshnn.github.io/framo/"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <!-- <a href="https://github.com/adityakrshnn/framo">View Demo</a>
@@ -95,7 +95,7 @@ To use Framo in your project
 <!--
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources. -->
 
-_For all utilities, please refer to the [Documentation](https://adityakrshnnn.github.io/framo/)_
+_For all utilities, please refer to the [Documentation](https://adityakrshnn.github.io/framo/)_
 
 
 
