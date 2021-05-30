@@ -12,6 +12,8 @@ coverage
 
 /.yarn/cache
 /.yarn/unplugged
+/.yarn/install-state.gz
+/.yarn/build-state.yml
 
 package-lock.json
 /*.tgz
