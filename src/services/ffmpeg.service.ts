@@ -18,7 +18,7 @@ export class FfmpegService extends EventTarget {
     return FfmpegService.instance;
   }
 
-  initializeFfmpeg = async () => {
+  initializeFfmpeg = async (): Promise<void> => {
     await scripService.loadScript(ScriptNames.FFMPEG);
     this.ffmpeg = FFmpeg.createFFmpeg({
       log: true,
@@ -27,11 +27,11 @@ export class FfmpegService extends EventTarget {
     this.initializeProgressForwarding();
   };
 
-  fetchFile = async (filename: string, file: File | Blob | ArrayBuffer | string) => {
+  fetchFile = async (filename: string, file: File | Blob | ArrayBuffer | string): Promise<void> => {
     this.ffmpeg.FS("writeFile", filename, await FFmpeg.fetchFile(file));
   };
 
-  initializeProgressForwarding() {
+  initializeProgressForwarding(): void {
     this.ffmpeg.setProgress((event) => {
       this.progress.dispatchEvent(new CustomEvent('progress', { detail: event}));
     })

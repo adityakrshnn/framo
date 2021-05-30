@@ -82,7 +82,7 @@ export class FrameExtractorService {
     return ["-ss", `${time}`, "-i", filename];
   }
 
-  getOutputMappingParameter(index: number, outputFilename: string, scale: string) {
+  getOutputMappingParameter(index: number, outputFilename: string, scale: string): string[] {
     const outputMapping = ["-map", `${index}:v`, "-frames:v", "1"];
 
     if (scale) {
@@ -93,11 +93,11 @@ export class FrameExtractorService {
     return outputMapping;
   }
 
-  getOutputFilename(index: number, extension: FramoImageExtension) {
+  getOutputFilename(index: number, extension: FramoImageExtension): string {
     return `out_${index}_${Date.now()}.${extension}`;
   }
 
-  getOutputFilenameForIntervalBasedParameters(index: number, extension: FramoImageExtension) {
+  getOutputFilenameForIntervalBasedParameters(index: number, extension: FramoImageExtension): string {
     const filenumber = index.toString().padStart(outputFileDigits, "0");
     return `out_${filenumber}.${extension}`;
   }
@@ -148,7 +148,7 @@ export class FrameExtractorService {
     interval: number,
     videoDuration: number,
     extension: FramoImageExtension
-  ) {
+  ): string[] {
     const filenames: string[] = [];
     const numberOfFrames = videoDuration / interval;
     for (let i = 1; i <= numberOfFrames; i++) {
@@ -159,8 +159,8 @@ export class FrameExtractorService {
     return filenames;
   }
 
-  getInParametersForIntervalBasedExtraction(filename: string, rate: string, scale: string) {
-    let inParameters: string[] = ['-i', filename, '-vf'];
+  getInParametersForIntervalBasedExtraction(filename: string, rate: string, scale: string): string[] {
+    const inParameters: string[] = ['-i', filename, '-vf'];
 
     if (scale) {
       inParameters.push(`fps=${rate},${scale}`);

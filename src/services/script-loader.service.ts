@@ -1,12 +1,28 @@
-import { ScriptStore } from "../stores/scripts";
+import { Scripts, ScriptStore } from "../stores/scripts";
 
-declare var document: any;
+export enum LoadStatus {
+  AlreadyLoaded = "Already Loaded",
+  Loaded = "Loaded",
+}
+
+export interface ScriptLoadedMapping {
+  loaded: boolean;
+  src: string;
+}
+
+export interface ScriptLoadedResponse {
+  script: string;
+  loaded: boolean;
+  status: LoadStatus;
+}
+
+declare const document: Document;
 
 export class ScriptService {
-  private scripts: any = {};
+  private scripts: { [id: string]: ScriptLoadedMapping } = {};
 
   constructor() {
-    ScriptStore.forEach((script: any) => {
+    ScriptStore.forEach((script: Scripts) => {
       this.scripts[script.name] = {
         loaded: false,
         src: script.src,
@@ -14,29 +30,45 @@ export class ScriptService {
     });
   }
 
-  load(...scripts: string[]) {
-    var promises: any[] = [];
+  load(...scripts: string[]): Promise<ScriptLoadedResponse[]> {
+    const promises: Promise<ScriptLoadedResponse>[] = [];
     scripts.forEach((script) => promises.push(this.loadScript(script)));
     return Promise.all(promises);
   }
 
-  loadScript(name: string) {
+  loadScript(name: string): Promise<ScriptLoadedResponse> {
     return new Promise((resolve) => {
-      //resolve if already loaded
       if (this.scripts[name].loaded) {
-        resolve({ script: name, loaded: true, status: "Already Loaded" });
+        const response: ScriptLoadedResponse = {
+          script: name,
+          loaded: true,
+          status: LoadStatus.AlreadyLoaded,
+        };
+        resolve(response);
       } else {
-        let script = document.createElement("script");
+        const script = document.createElement("script");
         script.type = "text/javascript";
         script.src = this.scripts[name].src;
+
         script.onload = () => {
           this.scripts[name].loaded = true;
-          resolve({ script: name, loaded: true, status: "Loaded" });
+          const response: ScriptLoadedResponse = {
+            script: name,
+            loaded: true,
+            status: LoadStatus.Loaded,
+          };
+          resolve(response);
         };
-        script.onerror = (error: any) => {
+
+        script.onerror = (error: Error) => {
           console.error(error);
-          resolve({ script: name, loaded: false, status: "Loaded" });
-        }
+          const response: ScriptLoadedResponse = {
+            script: name,
+            loaded: false,
+            status: LoadStatus.Loaded,
+          };
+          resolve(response);
+        };
         document.getElementsByTagName("head")[0].appendChild(script);
       }
     });

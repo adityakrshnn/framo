@@ -1,7 +1,7 @@
 import { FramoDimension } from "../models/generic-ffmpeg.model";
 
 export class Utility {
-  static getScale(dimensions: FramoDimension) {
+  static getScale(dimensions: FramoDimension): string {
     if (!dimensions.height && !dimensions.width) {
       return '';
     }

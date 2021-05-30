@@ -1,4 +1,4 @@
-interface Scripts {
+export interface Scripts {
   name: string;
   src: string;
 }
