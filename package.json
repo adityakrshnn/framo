@@ -12,6 +12,9 @@
     "framo",
     "wasm"
   ],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/tsc/main.js",
   "types": "./dist/tsc/browser.d.ts",
   "browser": "./dist/esbuild/browser.js",
