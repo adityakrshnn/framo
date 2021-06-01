@@ -18,9 +18,9 @@
   </p>
 
   <p align="center">
-    Awesome on-the-fly features using FFmpeg WASM
+    Awesome out-of-the-box media features with zero-config client-side processing and Typescript support
     <br />
-    <a href="https://adityakrshnn.github.io/framo/"><strong>Explore the docs »</strong></a>
+    <a href="https://adityakrshnn.github.io/framo/classes/framo.html"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <!-- <a href="https://github.com/adityakrshnn/framo">View Demo</a>
@@ -45,7 +45,7 @@
       </ul> -->
     </li>
     <li><a href="#features">Features</a></li>
-    <li><a href="#useful-events">Useful Events</a></li>
+    <li><a href="#observables">Observables</a></li>
     <li><a href="#documentation">Documentation</a></li>
     <li><a href="#license">License</a></li>
     <!-- <li><a href="#contact">Contact</a></li> -->
@@ -56,7 +56,7 @@
 
 ## About The Project
 
-This project is made to progressively enable client-side implementations of advanced media processing using FFmpeg WASM. See the [_full list of features_](https://github.com/adityakrshnn/framo#features).
+Framo aims to provide advanced media features on the browser itself without having to configure or setup multiple dependencies. It does all the hard work for you by using the best configurations for FFmpeg and only exposing the necessary options. See the [_full list of features_](https://github.com/adityakrshnn/framo#features).
 <br/>
 
 Framo is made using:
@@ -77,8 +77,10 @@ npm install framo
 ```
 
 ### Usage
+
 Initialize framo with [initializeFramo()](https://adityakrshnn.github.io/framo/classes/framo.html#initializeframo) before using any of its features
-```sh
+
+```ts
 const framo = new Framo();
 
 await framo.initializeFramo();
@@ -88,26 +90,81 @@ framo.initializeFramo().then(() => {
   ...
 })
 ```
+
+Alternatively, you can initialize framo asynchronously by subscribing to [`ready`](https://adityakrshnn.github.io/framo/classes/framo.html#ready) observable.
+
+```
+const framo = new Framo();
+
+framo.ready.subscribe(() => {
+  ...
+});
+framo.initializeFramo();
+```
+
 <!-- USAGE EXAMPLES -->
 
 ## Features
 
-### 🎞️ Frame Extractor
+### 🎞️ Filmstrip : [`makeFilmstrip()`](https://adityakrshnn.github.io/framo/classes/framo.html#makeFilmstrip)
 
-Extract frames from videos at specific time points or at regular intervals using the [`extractFrames()`](https://adityakrshnn.github.io/framo/modules.html#extractframes) function
-<br />
-<br />
+Make a filmstrip using frames at regular intervals.
+
+```ts
+const config: FilmstripRequestConfig = {
+  file: <File>,
+  filename: 'input.mp4',
+  timeInterval: 1,
+  outputExtension: FramoImageExtension.JPG,
+  orientation: FilmstripOrientation.VERTICAL,
+  resolution: {
+    height: 150,
+  },
+}
+```
+
+### 🖼 Frame Extractor : [`extractFrames()`](https://adityakrshnn.github.io/framo/classes/framo.html#extractframes)
+
+Extract frames from videos at specific time points or at regular intervals.
+
+```ts
+const config: FilmstripRequestConfig = {
+  file: <File>,
+  filename: 'input.mp4',
+  timeInterval: 5,
+  outputExtension: FramoImageExtension.JPG,
+};
+
+```
+
 _More features coming soon..._
+<br/>
 
-## Useful events
+## Observables
+
+### ⚡ Ready
+
+[`ready`](https://adityakrshnn.github.io/framo/classes/framo.html#ready) is triggered when framo is ready for operations.
+
+```ts
+framo.ready.subscribe(() => {
+  ...
+});
+```
 
 ### ⚡ Progress
 
-Subscribe to the [`progress`](https://adityakrshnn.github.io/framo/modules.html#progress) event to monitor operation progress.
+Subscribe to the [`progress`](https://adityakrshnn.github.io/framo/classes/framo.html#progress) observable to monitor operation progress.
+
+```ts
+framo.progress.subscribe((progress: Progress) => {
+  ...
+});
+```
 
 ## Documentation
 
-_For more details, please refer to the [Documentation](https://adityakrshnn.github.io/framo/)_
+_For more details, please refer to the [Documentation](https://adityakrshnn.github.io/framo/classes/framo.html)_
 
 <!-- ROADMAP -->
 <!-- ## Roadmap

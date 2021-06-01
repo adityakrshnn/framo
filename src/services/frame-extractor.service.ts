@@ -1,5 +1,5 @@
 import { FrameRequestConfig, FrameExtractionParametersResponse } from "../models/frame-extractor.model";
-import { FramoImageExtension } from "../models/generic-ffmpeg.model";
+import { FramoImageExtension } from "../models/generic.model";
 import { Utility } from "../utility/utility";
 import { FfmpegService } from "./ffmpeg.service";
 
@@ -21,8 +21,8 @@ export class FrameExtractorService {
 
   extractFrames = async (config: FrameRequestConfig): Promise<Blob[]> => {
     try {
-      await this.ffmpegService.fetchFile(config.filename, config.file);
-      const { parameters, outputFilenames } = await this.getParameters(config);
+      const fileBlob: Blob = await this.ffmpegService.fetchFile(config.filename, config.file);
+      const { parameters, outputFilenames } = await this.getParameters(config, fileBlob);
       await this.ffmpegService.ffmpeg.run(...parameters);
 
       const blobs = outputFilenames.map((filename) => {
@@ -37,7 +37,8 @@ export class FrameExtractorService {
   };
 
   async getParameters(
-    config: FrameRequestConfig
+    config: FrameRequestConfig,
+    fileBlob: Blob,
   ): Promise<FrameExtractionParametersResponse> {
     const auxillaryParameters = ["-y"];
     let parametersResponse: FrameExtractionParametersResponse = {
@@ -47,8 +48,8 @@ export class FrameExtractorService {
 
     if (config.timePoints) {
       parametersResponse = this.getTimeBasedParameters(config);
-    } else if (config.interval) {
-      parametersResponse = await this.getIntervalBasedParameters(config);
+    } else if (config.timeInterval) {
+      parametersResponse = await this.getIntervalBasedParameters(config, fileBlob);
     }
 
     const response: FrameExtractionParametersResponse = {
@@ -68,7 +69,7 @@ export class FrameExtractorService {
       inParameters.push(
         ...this.getSingleTimeBasedParameter(timePoint, config.filename)
       );
-      const outputFilename = this.getOutputFilename(index, config.outputExtension);
+      const outputFilename = Utility.getOutputFilename(index, config.outputExtension);
       outputFilenames.push(outputFilename);
       outParameters.push(
         ...this.getOutputMappingParameter(index, outputFilename, scale)
@@ -97,20 +98,20 @@ export class FrameExtractorService {
     return outputMapping;
   }
 
-  getOutputFilename(index: number, extension: FramoImageExtension): string {
-    return `out_${index}_${Date.now()}.${extension}`;
-  }
-
   getOutputFilenameForIntervalBasedParameters(index: number, extension: FramoImageExtension): string {
     const filenumber = index.toString().padStart(outputFileDigits, "0");
     return `out_${filenumber}.${extension}`;
   }
 
   async getIntervalBasedParameters(
-    config: FrameRequestConfig
+    config: FrameRequestConfig,
+    fileBlob: Blob
   ): Promise<FrameExtractionParametersResponse> {
-    const videoDuration = await this.getVideoDuration(config.file);
-    const interval = config.interval!;
+    const mediainfo = await this.ffmpegService.getMediaInfo(fileBlob);
+    const videoDuration = Utility.getVideoDuration(mediainfo);
+    const frameCount = Utility.getFrameCount(mediainfo);
+    console.log(frameCount);
+    const interval = config.timeInterval!;
     const rate = (1 / interval ?? 1).toFixed(2);
     const scale = config.resolution ? Utility.getScale(config.resolution) : '';
     const inParameters = this.getInParametersForIntervalBasedExtraction(config.filename, rate, scale);
@@ -130,7 +131,7 @@ export class FrameExtractorService {
     return response;
   }
 
-  getVideoDuration(file: File | Blob | ArrayBuffer | string): Promise<number> {
+  getVideoDuration(fileBlob: Blob): Promise<number> {
     return new Promise((resolve, reject) => {
       const video = document.createElement("video");
       video.preload = "metadata";
@@ -144,7 +145,7 @@ export class FrameExtractorService {
         reject(error);
       };
 
-      video.src = typeof(file) === 'string' ? file : URL.createObjectURL(file);
+      video.src = URL.createObjectURL(fileBlob);
     });
   }
 

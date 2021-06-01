@@ -5,7 +5,12 @@ export enum FramoImageExtension {
   BMP = 'bmp',
 }
 
-export interface FramoDimension {
+export interface FramoResolution {
   width?: number;
   height?: number;
+}
+
+export interface Progress {
+  duration: number;
+  ratio: number;
 }

@@ -1,7 +1,7 @@
 {
   "name": "framo",
   "version": "0.0.7",
-  "description": "Awesome on-the-fly features using FFmpeg WASM",
+  "description": "Awesome out-of-the-box media features with zero-config client-side processing and Typescript support",
   "author": "Aditya Krishnan <adityakrshnn@gmail.com>",
   "repository": "https://github.com/adityakrshnn/framo",
   "license": "MIT",
@@ -27,10 +27,11 @@
     "test": "jest",
     "clean": "rm -rf dist build package",
     "ts-node": "ts-node",
-    "docs": "typedoc --entryPoints src/browser.ts",
+    "docs": "typedoc --entryPoints src/browser.ts --excludePrivate",
     "build": "tsc -p tsconfig.json",
-    "build-all": "yarn clean && yarn build && yarn esbuild-node && yarn esbuild-browser",
-    "esbuild-browser": "esbuild src/browser.ts --bundle --target=es6 --format=cjs --minify --sourcemap=external --outfile=dist/esbuild/browser.js",
+    "build-all": "npm run clean || npm run lint || npm run build || npm run esbuild-browser || npm run docs",
+    "bd": "npm run build && npm run esbuild-browser:dev && yalc push",
+    "esbuild-browser": "esbuild src/browser.ts --bundle --target=es6 --format=cjs --minify --outfile=dist/esbuild/browser.js",
     "esbuild-browser:dev": "esbuild src/browser.ts --bundle --target=es6 --format=cjs --outfile=dist/esbuild/browser.js",
     "esbuild-browser:watch": "esbuild src/browser.ts --bundle --target=es6 --format=cjs --watch --outfile=dist/esbuild/browser.js",
     "esbuild-node": "esbuild src/cli.ts --bundle --target=es6 --platform=node --minify --sourcemap=external --outfile=dist/esbuild/cli.js",
@@ -43,11 +44,13 @@
     "@types/node": "^15.0.1",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
-    "awesome-typescript-loader": "^5.2.1",
     "esbuild": "^0.11.11",
     "esbuild-plugin-tsc": "^0.3.0",
     "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "jest": "^26.6.3",
+    "prettier": "^2.3.0",
     "ts-jest": "^26.5.4",
     "ts-loader": "^9.2.2",
     "ts-node": "^9.1.1",
@@ -56,5 +59,8 @@
     "typescript": "^4.2.3",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0"
+  },
+  "dependencies": {
+    "rxjs": "^7.1.0"
   }
 }
