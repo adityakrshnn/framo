@@ -7,5 +7,5 @@ export const ERROR_MESSAGES = {
 }
 
 export const REGEX = {
-  ONLY_NUMBER: /[\d.\+]+/g,
+  ONLY_NUMBER: /[\d.+]+/g,
 }

@@ -20,7 +20,7 @@ export class Utility {
     return parseFloat(mediainfoResult.media?.track[0]?.Duration) ?? 0.0;
   }
 
-  static parseMediainfoResultForFramerate(mediainfoResult: string) {
+  static parseMediainfoResultForFramerate(mediainfoResult: string): number {
     const positionOfFramerate = mediainfoResult.indexOf('Framerate:');
     if (positionOfFramerate === -1) {
       throw new Error(ERROR_MESSAGES.NO_FRAMERATE_IN_MEDIAINFO);
@@ -41,7 +41,7 @@ export class Utility {
     return `out_${index}_${Date.now()}.${extension}`;
   }
 
-  static getFilmstripTileString(totalFramesInFilmstrip: number, orientation: FilmstripOrientation) {
+  static getFilmstripTileString(totalFramesInFilmstrip: number, orientation: FilmstripOrientation): string {
     if (orientation === FilmstripOrientation.HORIZONTAL) {
       return `tile=${totalFramesInFilmstrip}x1`;
     } else {

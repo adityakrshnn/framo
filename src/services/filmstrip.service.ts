@@ -36,7 +36,7 @@ export class FilmstripService {
     }
   }
 
-  getParameters = (config: FilmstripRequestConfig, mediainfo: Mediainfo) => {
+  getParameters = (config: FilmstripRequestConfig, mediainfo: Mediainfo): FilmstripParametersResponse => {
     const auxillaryParameters = ["-y"];
     let parametersResponse: FilmstripParametersResponse = {
       parameters: [],
