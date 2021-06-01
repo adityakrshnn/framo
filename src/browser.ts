@@ -1,9 +1,9 @@
 import { Main } from "./main";
-import { FilmstripRequestConfig } from "./models/filmstrip.model";
+import { FilmstripOrientation, FilmstripRequestConfig } from "./models/filmstrip.model";
 import { FrameRequestConfig } from "./models/frame-extractor.model";
-import { FramoImageExtension } from "./models/generic.model";
+import { FramoImageExtension, Progress } from "./models/generic.model";
 import { FfmpegService } from "./services/ffmpeg.service";
-export { FrameRequestConfig, FramoImageExtension };
+export { FrameRequestConfig, FramoImageExtension, Progress, FilmstripOrientation, FilmstripRequestConfig };
 
 export class Framo {
   private _ffmpegService = FfmpegService.getInstance();

@@ -186,7 +186,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See [`LICENSE`](https://github.com/adityakrshnn/framo/blob/master/LICENSE) for more information.
 
 <!-- CONTACT
 ## Contact
