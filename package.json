@@ -1,6 +1,6 @@
 {
   "name": "framo",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Awesome out-of-the-box media features with zero-config client-side processing and Typescript support",
   "author": "Aditya Krishnan <adityakrshnn@gmail.com>",
   "repository": "https://github.com/adityakrshnn/framo",
