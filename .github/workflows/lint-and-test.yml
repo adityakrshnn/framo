@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: ${{ matrix.nodejs }}
 
-      - run: npm run install
-      - run: npm run add -D esbuild
+      - run: npm install
+      - run: npm install -D esbuild
       - run: npm run lint
       - run: npm run esbuild-browser
