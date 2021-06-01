@@ -24,12 +24,6 @@ export class FilmstripService {
       await this.ffmpegService.ffmpeg.run(...parameters);
 
       const data = this.ffmpegService.ffmpeg.FS("readFile", outputFilename);
-
-      setTimeout(() => {
-        this.ffmpegService.ffmpeg.exit();
-        this.ffmpegService.ffmpeg = null;
-      }, 1000);
-
       return new Blob([data.buffer]);
     } catch (error) {
       throw new Error(error)
