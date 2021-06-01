@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>FrameRequestConfig | framo</title>
+	<title>FilmstripRequestConfig | framo</title>
 	<meta name="description" content="Documentation for framo">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,10 @@
 					<a href="../modules.html">framo</a>
 				</li>
 				<li>
-					<a href="framerequestconfig.html">FrameRequestConfig</a>
+					<a href="filmstriprequestconfig.html">FilmstripRequestConfig</a>
 				</li>
 			</ul>
-			<h1>Interface FrameRequestConfig</h1>
+			<h1>Interface FilmstripRequestConfig</h1>
 		</div>
 	</div>
 </header>
@@ -69,7 +69,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">FrameRequestConfig</span>
+						<span class="target">FilmstripRequestConfig</span>
 					</li>
 				</ul>
 			</section>
@@ -80,12 +80,12 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="framerequestconfig.html#file" class="tsd-kind-icon">file</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="framerequestconfig.html#filename" class="tsd-kind-icon">filename</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="framerequestconfig.html#outputextension" class="tsd-kind-icon">output<wbr>Extension</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="framerequestconfig.html#resolution" class="tsd-kind-icon">resolution</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="framerequestconfig.html#timeinterval" class="tsd-kind-icon">time<wbr>Interval</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="framerequestconfig.html#timepoints" class="tsd-kind-icon">time<wbr>Points</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="filmstriprequestconfig.html#file" class="tsd-kind-icon">file</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="filmstriprequestconfig.html#filename" class="tsd-kind-icon">filename</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="filmstriprequestconfig.html#orientation" class="tsd-kind-icon">orientation</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="filmstriprequestconfig.html#outputextension" class="tsd-kind-icon">output<wbr>Extension</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="filmstriprequestconfig.html#resolution" class="tsd-kind-icon">resolution</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="filmstriprequestconfig.html#timeinterval" class="tsd-kind-icon">time<wbr>Interval</a></li>
 							</ul>
 						</section>
 					</div>
@@ -99,7 +99,7 @@
 					<div class="tsd-signature tsd-kind-icon">file<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Blob</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">File</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ArrayBuffer</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/97c29a7/src/models/frame-extractor.model.ts#L5">models/frame-extractor.model.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/97c29a7/src/models/filmstrip.model.ts#L5">models/filmstrip.model.ts:5</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -116,7 +116,7 @@
 					<div class="tsd-signature tsd-kind-icon">filename<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/97c29a7/src/models/frame-extractor.model.ts#L7">models/frame-extractor.model.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/97c29a7/src/models/filmstrip.model.ts#L7">models/filmstrip.model.ts:7</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -128,18 +128,35 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="outputextension" class="tsd-anchor"></a>
-					<h3>output<wbr>Extension</h3>
-					<div class="tsd-signature tsd-kind-icon">output<wbr>Extension<span class="tsd-signature-symbol">:</span> <a href="../enums/framoimageextension.html" class="tsd-signature-type" data-tsd-kind="Enumeration">FramoImageExtension</a></div>
+					<a name="orientation" class="tsd-anchor"></a>
+					<h3>orientation</h3>
+					<div class="tsd-signature tsd-kind-icon">orientation<span class="tsd-signature-symbol">:</span> <a href="../enums/filmstriporientation.html" class="tsd-signature-type" data-tsd-kind="Enumeration">FilmstripOrientation</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/97c29a7/src/models/frame-extractor.model.ts#L9">models/frame-extractor.model.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/97c29a7/src/models/filmstrip.model.ts#L11">models/filmstrip.model.ts:11</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<dl class="tsd-comment-tags">
 							<dt>description</dt>
-							<dd><p>Mention the image extension of the frame output</p>
+							<dd><p>Mention Filmstrip orientation</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="outputextension" class="tsd-anchor"></a>
+					<h3>output<wbr>Extension</h3>
+					<div class="tsd-signature tsd-kind-icon">output<wbr>Extension<span class="tsd-signature-symbol">:</span> <a href="../enums/framoimageextension.html" class="tsd-signature-type" data-tsd-kind="Enumeration">FramoImageExtension</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/97c29a7/src/models/filmstrip.model.ts#L9">models/filmstrip.model.ts:9</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>description</dt>
+							<dd><p>Mention the image extension of the filmstrip</p>
 							</dd>
 						</dl>
 					</div>
@@ -150,47 +167,30 @@
 					<div class="tsd-signature tsd-kind-icon">resolution<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">FramoResolution</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/97c29a7/src/models/frame-extractor.model.ts#L15">models/frame-extractor.model.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/97c29a7/src/models/filmstrip.model.ts#L17">models/filmstrip.model.ts:17</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<dl class="tsd-comment-tags">
 							<dt>description</dt>
-							<dd><p>Change the resolution of the final output</p>
+							<dd><p>Change the resolution of individual frames</p>
 							</dd>
 						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="timeinterval" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> time<wbr>Interval</h3>
+					<h3>time<wbr>Interval</h3>
 					<div class="tsd-signature tsd-kind-icon">time<wbr>Interval<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/97c29a7/src/models/frame-extractor.model.ts#L11">models/frame-extractor.model.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/97c29a7/src/models/filmstrip.model.ts#L13">models/filmstrip.model.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<dl class="tsd-comment-tags">
 							<dt>description</dt>
 							<dd><p>Frames at regular time intervals in seconds</p>
-							</dd>
-						</dl>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="timepoints" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> time<wbr>Points</h3>
-					<div class="tsd-signature tsd-kind-icon">time<wbr>Points<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/97c29a7/src/models/frame-extractor.model.ts#L13">models/frame-extractor.model.ts:13</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<dl class="tsd-comment-tags">
-							<dt>description</dt>
-							<dd><p>Frames at specific time points in ffmpeg&#39;s accepted formats <a href="https://trac.ffmpeg.org/wiki/Seeking#:~:text=starting%20at%20120s.-,Time%20unit%20syntax,%22%2C%20not%20as%20frame%205">https://trac.ffmpeg.org/wiki/Seeking#:~:text=starting%20at%20120s.-,Time%20unit%20syntax,%22%2C%20not%20as%20frame%205</a>.</p>
 							</dd>
 						</dl>
 					</div>
@@ -216,36 +216,36 @@
 					<li class=" tsd-kind-class">
 						<a href="../classes/framo.html" class="tsd-kind-icon">Framo</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="filmstriprequestconfig.html" class="tsd-kind-icon">Filmstrip<wbr>Request<wbr>Config</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="framerequestconfig.html" class="tsd-kind-icon">Frame<wbr>Request<wbr>Config</a>
+						<a href="filmstriprequestconfig.html" class="tsd-kind-icon">Filmstrip<wbr>Request<wbr>Config</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="framerequestconfig.html#file" class="tsd-kind-icon">file</a>
+								<a href="filmstriprequestconfig.html#file" class="tsd-kind-icon">file</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="framerequestconfig.html#filename" class="tsd-kind-icon">filename</a>
+								<a href="filmstriprequestconfig.html#filename" class="tsd-kind-icon">filename</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="framerequestconfig.html#outputextension" class="tsd-kind-icon">output<wbr>Extension</a>
+								<a href="filmstriprequestconfig.html#orientation" class="tsd-kind-icon">orientation</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="framerequestconfig.html#resolution" class="tsd-kind-icon">resolution</a>
+								<a href="filmstriprequestconfig.html#outputextension" class="tsd-kind-icon">output<wbr>Extension</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="framerequestconfig.html#timeinterval" class="tsd-kind-icon">time<wbr>Interval</a>
+								<a href="filmstriprequestconfig.html#resolution" class="tsd-kind-icon">resolution</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="framerequestconfig.html#timepoints" class="tsd-kind-icon">time<wbr>Points</a>
+								<a href="filmstriprequestconfig.html#timeinterval" class="tsd-kind-icon">time<wbr>Interval</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="framerequestconfig.html" class="tsd-kind-icon">Frame<wbr>Request<wbr>Config</a>
+					</li>
 					<li class=" tsd-kind-interface">
 						<a href="progress.html" class="tsd-kind-icon">Progress</a>
 					</li>
