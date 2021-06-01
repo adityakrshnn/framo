@@ -8,11 +8,6 @@
 .DS_Store
 coverage
 *.log
-/.yarn/cache
-/.yarn/unplugged
 /.vscode/
-/.yarn/install-state.gz
-/.yarn/build-state.yml
 
 .npmignore
-.pnp.js
