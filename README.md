@@ -120,6 +120,9 @@ const config: FilmstripRequestConfig = {
   resolution: {
     height: 150,
   },
+  margin: 5,
+  padding: 5,
+  color: '#ff0000',
 }
 ```
 

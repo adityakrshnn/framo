@@ -1,5 +1,5 @@
 import { ERROR_MESSAGES, REGEX } from "../constants/constants";
-import { FilmstripOrientation } from "../models/filmstrip.model";
+import { FilmstripOrientation, FilmstripRequestConfig } from "../models/filmstrip.model";
 import { FramoImageExtension, FramoResolution } from "../models/generic.model";
 import { Mediainfo } from "../models/mediainfo.model";
 
@@ -41,11 +41,30 @@ export class Utility {
     return `out_${index}_${Date.now()}.${extension}`;
   }
 
-  static getFilmstripTileString(totalFramesInFilmstrip: number, orientation: FilmstripOrientation): string {
-    if (orientation === FilmstripOrientation.HORIZONTAL) {
-      return `tile=${totalFramesInFilmstrip}x1`;
+  static getFilmstripTileString(totalFramesInFilmstrip: number, config: FilmstripRequestConfig): string {
+    let tileString = `tile=`;
+
+    if (config.orientation === FilmstripOrientation.HORIZONTAL) {
+      tileString += `${totalFramesInFilmstrip}x1`;
     } else {
-      return `tile=1x${totalFramesInFilmstrip}`;
+      tileString += `1x${totalFramesInFilmstrip}`;
     }
+
+    if (config.padding) {
+      tileString += `:padding=${config.padding}`;
+    }
+
+    if (config.margin) {
+      tileString += `:margin=${config.margin}`;
+    }
+
+    if (config.color) {
+      tileString += `:color=${config.color}`;
+    }
+
+    if (config.initPadding) {
+      tileString += `:init_padding=${config.initPadding}`;
+    }
+    return tileString;
   }
 }

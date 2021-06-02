@@ -52,7 +52,7 @@ export class FilmstripService {
     const totalFramesInFilmstrip = Math.floor(duration / config.timeInterval!);
     const selectTime = `select=not(mod(n\\,${config.timeInterval!})),`;
     const scale = config.resolution ? `${Utility.getScale(config.resolution)},` : '';
-    const tiles = Utility.getFilmstripTileString(totalFramesInFilmstrip, config.orientation);
+    const tiles = Utility.getFilmstripTileString(totalFramesInFilmstrip, config);
     const vfString = `${selectTime}${scale}${tiles}`
 
     const inParameters: string[] = ['-i', config.filename, '-frames', '1', '-vf', vfString];

@@ -11,6 +11,14 @@ export interface FilmstripRequestConfig {
   orientation: FilmstripOrientation,
   /** @description Frames at regular time intervals in seconds */
   timeInterval: number;
+  /** @description Space between 2 frames */
+  padding?: number;
+  /** @description Space between frame and edge */
+  margin?: number;
+  /** @description Colour of empty space */
+  color?: string;
+  /** @description Number of frames to initially be empty before displaying first output frame */
+  initPadding?: number;
   // /** @description Frames at regular frame intervals */
   // frameInterval?: number;
   /** @description Change the resolution of individual frames */
