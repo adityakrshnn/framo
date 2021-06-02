@@ -18,7 +18,7 @@
   </p>
 
   <p align="center">
-    Awesome out-of-the-box media features with zero-config client-side processing and Typescript support
+    Glorious media processing right in your browser with Typescript support
     <br />
     <a href="https://adityakrshnn.github.io/framo/classes/framo.html"><strong>Explore the docs »</strong></a>
     <br />
@@ -91,7 +91,7 @@ framo.initializeFramo().then(() => {
 })
 ```
 
-Alternatively, you can initialize framo asynchronously by subscribing to [`ready`](https://adityakrshnn.github.io/framo/classes/framo.html#ready) observable.
+Alternatively, you can initialize framo asynchronously by subscribing to the [`ready`](https://adityakrshnn.github.io/framo/classes/framo.html#ready) observable.
 
 ```
 const framo = new Framo();
@@ -124,6 +124,8 @@ const config: FilmstripRequestConfig = {
   padding: 5,
   color: '#ff0000',
 }
+
+const filmstrip = await framo.makeFilmstrip(config);
 ```
 
 ### 🖼 Frame Extractor : [`extractFrames()`](https://adityakrshnn.github.io/framo/classes/framo.html#extractframes)
@@ -131,13 +133,14 @@ const config: FilmstripRequestConfig = {
 Extract frames from videos at specific time points or at regular intervals.
 
 ```ts
-const config: FilmstripRequestConfig = {
+const config: FrameRequestConfig = {
   file: <File>,
   filename: 'input.mp4',
   timeInterval: 5,
   outputExtension: FramoImageExtension.JPG,
 };
 
+const frames = await framo.extractFrames(config);
 ```
 
 _More features coming soon..._

@@ -131,24 +131,6 @@ export class FrameExtractorService {
     return response;
   }
 
-  getVideoDuration(fileBlob: Blob): Promise<number> {
-    return new Promise((resolve, reject) => {
-      const video = document.createElement("video");
-      video.preload = "metadata";
-
-      video.onloadedmetadata = () => {
-        window.URL.revokeObjectURL(video.src);
-        resolve(video.duration);
-      };
-
-      video.onerror = (error) => {
-        reject(error);
-      };
-
-      video.src = URL.createObjectURL(fileBlob);
-    });
-  }
-
   getOutputFilenamesForIntervalBasedParameters(
     interval: number,
     videoDuration: number,
