@@ -18,7 +18,7 @@
   </p>
 
   <p align="center">
-    Glorious media processing right in your browser with Typescript support
+    ✨ Glorious media processing right in your browser with Typescript support ✨
     <br />
     <a href="https://adityakrshnn.github.io/framo/classes/framo.html"><strong>Explore the docs »</strong></a>
     <br />
