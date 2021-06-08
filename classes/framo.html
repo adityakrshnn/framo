@@ -96,6 +96,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="framo.html#extractframes" class="tsd-kind-icon">extract<wbr>Frames</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="framo.html#initializeframo" class="tsd-kind-icon">initialize<wbr>Framo</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="framo.html#makefilmstrip" class="tsd-kind-icon">make<wbr>Filmstrip</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="framo.html#stitchframes" class="tsd-kind-icon">stitch<wbr>Frames</a></li>
 							</ul>
 						</section>
 					</div>
@@ -126,7 +127,7 @@
 					<div class="tsd-signature tsd-kind-icon">progress<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Subject</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/progress.html" class="tsd-signature-type" data-tsd-kind="Interface">Progress</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/524633e/src/browser.ts#L37">browser.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/087fe48/src/browser.ts#L46">browser.ts:46</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -143,7 +144,7 @@
 					<div class="tsd-signature tsd-kind-icon">ready<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Subject</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/524633e/src/browser.ts#L43">browser.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/087fe48/src/browser.ts#L52">browser.ts:52</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -167,7 +168,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/524633e/src/browser.ts#L22">browser.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/087fe48/src/browser.ts#L23">browser.ts:23</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -197,7 +198,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/524633e/src/browser.ts#L15">browser.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/087fe48/src/browser.ts#L16">browser.ts:16</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -221,7 +222,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/524633e/src/browser.ts#L30">browser.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/087fe48/src/browser.ts#L31">browser.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -235,6 +236,36 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>config: <a href="../interfaces/filmstriprequestconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">FilmstripRequestConfig</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Blob</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="stitchframes" class="tsd-anchor"></a>
+					<h3>stitch<wbr>Frames</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">stitch<wbr>Frames<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/stitchframesrequestconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">StitchFramesRequestConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Blob</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/adityakrshnn/framo/blob/087fe48/src/browser.ts#L39">browser.ts:39</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>Stitch frames to make video</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>config: <a href="../interfaces/stitchframesrequestconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">StitchFramesRequestConfig</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Blob</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -259,6 +290,9 @@
 					<li class=" tsd-kind-enum">
 						<a href="../enums/framoimageextension.html" class="tsd-kind-icon">Framo<wbr>Image<wbr>Extension</a>
 					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/framovideoextension.html" class="tsd-kind-icon">Framo<wbr>Video<wbr>Extension</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
@@ -282,6 +316,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="framo.html#makefilmstrip" class="tsd-kind-icon">make<wbr>Filmstrip</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="framo.html#stitchframes" class="tsd-kind-icon">stitch<wbr>Frames</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
@@ -294,6 +331,9 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/progress.html" class="tsd-kind-icon">Progress</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/stitchframesrequestconfig.html" class="tsd-kind-icon">Stitch<wbr>Frames<wbr>Request<wbr>Config</a>
 					</li>
 				</ul>
 			</nav>
