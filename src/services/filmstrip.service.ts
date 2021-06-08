@@ -1,4 +1,5 @@
-import { FilmstripParametersResponse, FilmstripRequestConfig } from "../models/filmstrip.model";
+import { FilmstripRequestConfig } from "../models/filmstrip.model";
+import { SingleOutputParametersResponse } from "../models/generic.model";
 import { Mediainfo } from "../models/mediainfo.model";
 import { Utility } from "../utility/utility";
 import { FfmpegService } from "./ffmpeg.service";
@@ -30,23 +31,23 @@ export class FilmstripService {
     }
   }
 
-  getParameters = (config: FilmstripRequestConfig, mediainfo: Mediainfo): FilmstripParametersResponse => {
+  getParameters = (config: FilmstripRequestConfig, mediainfo: Mediainfo): SingleOutputParametersResponse => {
     const auxillaryParameters = ["-y"];
-    let parametersResponse: FilmstripParametersResponse = {
+    let parametersResponse: SingleOutputParametersResponse = {
       parameters: [],
       outputFilename: '',
     };
 
     parametersResponse = this.getTimeIntervalBasedParameters(config, mediainfo)
 
-    const response: FilmstripParametersResponse = {
+    const response: SingleOutputParametersResponse = {
       parameters: [...parametersResponse.parameters, ...auxillaryParameters],
       outputFilename: parametersResponse.outputFilename,
     };
     return response;
   }
 
-  getTimeIntervalBasedParameters = (config: FilmstripRequestConfig, mediainfo: Mediainfo): FilmstripParametersResponse => {
+  getTimeIntervalBasedParameters = (config: FilmstripRequestConfig, mediainfo: Mediainfo): SingleOutputParametersResponse => {
     const outputFilename = Utility.getOutputFilename(1, config.outputExtension);
     const duration = Utility.getVideoDuration(mediainfo);
     const totalFramesInFilmstrip = Math.floor(duration / config.timeInterval!);
@@ -58,7 +59,7 @@ export class FilmstripService {
     const inParameters: string[] = ['-i', config.filename, '-frames', '1', '-vf', vfString];
     const outParameters: string[] = [outputFilename];
 
-    const response: FilmstripParametersResponse = {
+    const response: SingleOutputParametersResponse = {
       parameters: [...inParameters, ...outParameters],
       outputFilename,
     };

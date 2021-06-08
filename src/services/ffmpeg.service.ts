@@ -59,6 +59,14 @@ export class FfmpegService extends EventTarget {
     return new Blob([fileAsUint8Array]);
   };
 
+  fetchFiles = (files: (File | Blob | ArrayBuffer | string)[], filenames: string[]): Promise<Blob>[] => {
+    const filePromises: Promise<Blob>[] = [];
+    files.forEach((file: File | Blob | ArrayBuffer | string, index: number) => {
+      filePromises.push(this.fetchFile(filenames[index], file));
+    });
+    return filePromises;
+  }
+
   initializeProgressForwarding(): void {
     this.ffmpeg.setProgress((progress: Progress) => {
       this.progress.next(progress);
@@ -91,5 +99,13 @@ export class FfmpegService extends EventTarget {
     } catch (error) {
       throw new Error(ERROR_MESSAGES.MEDIAINFO_COULD_NOT_ANALYZE_VIDEO)
     }
+  }
+
+  getMediaInfos = (fileBlobs: Blob[]): Promise<Mediainfo>[] => {
+    const mediaInfos: Promise<Mediainfo>[] = [];
+    fileBlobs.forEach((blob: Blob) => {
+      mediaInfos.push(this.getMediaInfo(blob));
+    });
+    return mediaInfos;
   }
 }

@@ -49,4 +49,9 @@ export class Utility {
     }
     return tileString;
   }
+
+  static getFilenameWithPadding(index: number, prefix: string, totalDigitsInFilename: number, extension: FramoImageExtension): string {
+    const filenumber = index.toString().padStart(totalDigitsInFilename, "0");
+    return `${prefix}_${filenumber}.${extension}`;
+  }
 }

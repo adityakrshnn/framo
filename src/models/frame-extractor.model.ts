@@ -1,6 +1,6 @@
 import { FramoResolution, FramoImageExtension } from "./generic.model";
 
-export interface FrameRequestConfig {
+export interface ExtractFramesRequestConfig {
   /** @description File in the form of File, base64 string, Blob, ArrayBuffer, or url */
   file: File | Blob | ArrayBuffer | string;
   /** @description Input filename with correct extension @example input.mp4*/
@@ -15,7 +15,7 @@ export interface FrameRequestConfig {
   resolution?: FramoResolution;
 }
 
-export interface FrameExtractionParametersResponse {
+export interface ExtractFramesParametersResponse {
   parameters: string[];
   outputFilenames: string[];
 }

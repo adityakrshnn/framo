@@ -25,11 +25,6 @@ export interface FilmstripRequestConfig {
   resolution?: FramoResolution;
 }
 
-export interface FilmstripParametersResponse {
-  parameters: string[];
-  outputFilename: string;
-}
-
 export enum FilmstripOrientation {
   HORIZONTAL = 'horizontal',
   VERTICAL = 'vertical',

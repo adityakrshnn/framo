@@ -1,9 +1,10 @@
 import { Main } from "./main";
 import { FilmstripOrientation, FilmstripRequestConfig } from "./models/filmstrip.model";
-import { FrameRequestConfig } from "./models/frame-extractor.model";
-import { FramoImageExtension, Progress } from "./models/generic.model";
+import { ExtractFramesRequestConfig } from "./models/frame-extractor.model";
+import { StitchFramesRequestConfig } from "./models/frame-stitcher.model";
+import { FramoImageExtension, FramoVideoExtension, Progress } from "./models/generic.model";
 import { FfmpegService } from "./services/ffmpeg.service";
-export { FrameRequestConfig, FramoImageExtension, Progress, FilmstripOrientation, FilmstripRequestConfig };
+export { ExtractFramesRequestConfig as FrameRequestConfig, FramoImageExtension, FramoVideoExtension, Progress, FilmstripOrientation, FilmstripRequestConfig, StitchFramesRequestConfig };
 
 export class Framo {
   private _ffmpegService = FfmpegService.getInstance();
@@ -19,7 +20,7 @@ export class Framo {
    * @param config
    * @returns
    */
-  extractFrames = (config: FrameRequestConfig): Promise<Blob[]> =>
+  extractFrames = (config: ExtractFramesRequestConfig): Promise<Blob[]> =>
     this._main.initializationGuard().extractFrames(config);
 
   /**
@@ -29,6 +30,14 @@ export class Framo {
    */
   makeFilmstrip = (config: FilmstripRequestConfig): Promise<Blob> =>
     this._main.initializationGuard().makeFilmstrip(config);
+
+  /**
+   * @description Stitch frames to make video
+   * @param config
+   * @returns
+   */
+  stitchFrames = (config: StitchFramesRequestConfig): Promise<Blob> =>
+    this._main.initializationGuard().stitchFrames(config);
 
   /**
    * @description Emits that framo is ready

@@ -1,4 +1,4 @@
-import { FrameRequestConfig, FrameExtractionParametersResponse } from "../models/frame-extractor.model";
+import { ExtractFramesRequestConfig, ExtractFramesParametersResponse } from "../models/frame-extractor.model";
 import { FramoImageExtension } from "../models/generic.model";
 import { Utility } from "../utility/utility";
 import { FfmpegService } from "./ffmpeg.service";
@@ -19,7 +19,7 @@ export class FrameExtractorService {
     return FrameExtractorService.instance;
   }
 
-  extractFrames = async (config: FrameRequestConfig): Promise<Blob[]> => {
+  extractFrames = async (config: ExtractFramesRequestConfig): Promise<Blob[]> => {
     try {
       const fileBlob: Blob = await this.ffmpegService.fetchFile(config.filename, config.file);
       const { parameters, outputFilenames } = await this.getParameters(config, fileBlob);
@@ -37,11 +37,11 @@ export class FrameExtractorService {
   };
 
   async getParameters(
-    config: FrameRequestConfig,
+    config: ExtractFramesRequestConfig,
     fileBlob: Blob,
-  ): Promise<FrameExtractionParametersResponse> {
+  ): Promise<ExtractFramesParametersResponse> {
     const auxillaryParameters = ["-y"];
-    let parametersResponse: FrameExtractionParametersResponse = {
+    let parametersResponse: ExtractFramesParametersResponse = {
       parameters: [],
       outputFilenames: [],
     };
@@ -52,14 +52,14 @@ export class FrameExtractorService {
       parametersResponse = await this.getIntervalBasedParameters(config, fileBlob);
     }
 
-    const response: FrameExtractionParametersResponse = {
+    const response: ExtractFramesParametersResponse = {
       parameters: [...parametersResponse.parameters, ...auxillaryParameters],
       outputFilenames: parametersResponse.outputFilenames,
     };
     return response;
   }
 
-  getTimeBasedParameters(config: FrameRequestConfig): FrameExtractionParametersResponse {
+  getTimeBasedParameters(config: ExtractFramesRequestConfig): ExtractFramesParametersResponse {
     const inParameters: string[] = [];
     const outParameters: string[] = [];
     const outputFilenames: string[] = [];
@@ -76,7 +76,7 @@ export class FrameExtractorService {
       );
     });
 
-    const response: FrameExtractionParametersResponse = {
+    const response: ExtractFramesParametersResponse = {
       parameters: [...inParameters, ...outParameters],
       outputFilenames,
     };
@@ -98,15 +98,10 @@ export class FrameExtractorService {
     return outputMapping;
   }
 
-  getOutputFilenameForIntervalBasedParameters(index: number, extension: FramoImageExtension): string {
-    const filenumber = index.toString().padStart(outputFileDigits, "0");
-    return `out_${filenumber}.${extension}`;
-  }
-
   async getIntervalBasedParameters(
-    config: FrameRequestConfig,
+    config: ExtractFramesRequestConfig,
     fileBlob: Blob
-  ): Promise<FrameExtractionParametersResponse> {
+  ): Promise<ExtractFramesParametersResponse> {
     const mediainfo = await this.ffmpegService.getMediaInfo(fileBlob);
     const videoDuration = Utility.getVideoDuration(mediainfo);
     const frameCount = Utility.getFrameCount(mediainfo);
@@ -119,11 +114,11 @@ export class FrameExtractorService {
     const outputFilenames: string[] = [];
 
     for (let i = interval, j = 1; i <= videoDuration; i += interval, j++) {
-      const outputFilename = this.getOutputFilenameForIntervalBasedParameters(j, config.outputExtension);
+      const outputFilename = Utility.getFilenameWithPadding(j, 'out', outputFileDigits, config.outputExtension);
       outputFilenames.push(outputFilename);
     }
 
-    const response: FrameExtractionParametersResponse = {
+    const response: ExtractFramesParametersResponse = {
       parameters: [...inParameters, ...outParameters],
       outputFilenames,
     };

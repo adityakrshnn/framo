@@ -5,6 +5,11 @@ export enum FramoImageExtension {
   BMP = 'bmp',
 }
 
+export enum FramoVideoExtension {
+  MP4 = 'mp4',
+  WEBM = 'webm',
+}
+
 export interface FramoResolution {
   width?: number;
   height?: number;
@@ -13,4 +18,9 @@ export interface FramoResolution {
 export interface Progress {
   duration: number;
   ratio: number;
+}
+
+export interface SingleOutputParametersResponse {
+  parameters: string[];
+  outputFilename: string;
 }

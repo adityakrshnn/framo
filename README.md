@@ -117,6 +117,8 @@ const config: FilmstripRequestConfig = {
   timeInterval: 1,
   outputExtension: FramoImageExtension.JPG,
   orientation: FilmstripOrientation.VERTICAL,
+
+  /** Optional */
   resolution: {
     height: 150,
   },
@@ -133,7 +135,7 @@ const filmstrip = await framo.makeFilmstrip(config);
 Extract frames from videos at specific time points or at regular intervals.
 
 ```ts
-const config: FrameRequestConfig = {
+const config: ExtractFramesRequestConfig = {
   file: <File>,
   filename: 'input.mp4',
   timeInterval: 5,
@@ -141,6 +143,23 @@ const config: FrameRequestConfig = {
 };
 
 const frames = await framo.extractFrames(config);
+```
+
+### 🧵 Frames To Video : [`stitchFrames()`](https://adityakrshnn.github.io/framo/classes/framo.html#stitchFrames)
+
+Stictch frames together to make a video.
+
+```ts
+const config: StitchFramesRequestConfig = {
+  files: <Files>,
+  inputExtension: FramoImageExtension.JPG,
+  videoExtension: FramoVideoExtension.MP4;
+
+  /** Optional */
+  frameDuration: 1,
+};
+
+const frames = await framo.stitchFrames(config);
 ```
 
 _More features coming soon..._
