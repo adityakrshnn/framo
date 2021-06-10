@@ -18,9 +18,6 @@
   "main": "./dist/main.js",
   "types": "./dist/tsc/browser.d.ts",
   "browser": "./dist/esbuild/browser.js",
-  "bin": {
-    "my-cli-tool": "./dist/esbuild/cli.js"
-  },
   "scripts": {
     "cli": "ts-node src/cli.ts",
     "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
@@ -34,9 +31,6 @@
     "esbuild-browser": "esbuild src/browser.ts --bundle --minify-whitespace --minify-syntax --target=es6 --format=cjs --outfile=dist/esbuild/browser.js",
     "esbuild-browser:dev": "esbuild src/browser.ts --bundle --target=es6 --format=cjs --outfile=dist/esbuild/browser.js",
     "esbuild-browser:watch": "esbuild src/browser.ts --bundle --target=es6 --format=cjs --watch --outfile=dist/esbuild/browser.js",
-    "esbuild-node": "esbuild src/cli.ts --bundle --target=es6 --platform=node --minify --sourcemap=external --outfile=dist/esbuild/cli.js",
-    "esbuild-node:dev": "esbuild src/cli.ts --bundle --target=es6 --sourcemap=external --outfile=dist/esbuild/cli.js",
-    "esbuild-node:watch": "esbuild src/cli.ts --bundle --target=es6 --watch --sourcemap=external --outfile=dist/esbuild/cli.js",
     "release": "dotenv release-it --only-version"
   },
   "devDependencies": {

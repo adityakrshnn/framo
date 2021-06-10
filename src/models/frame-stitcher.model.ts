@@ -1,4 +1,4 @@
-import { FramoImageExtension, FramoResolution, FramoVideoExtension } from "./generic.model";
+import { FramoImageExtension, FramoSupplementaryConfig, FramoVideoExtension } from "./generic.model";
 
 export interface StitchFramesRequestConfig {
   /** @description File in the form of File, base64 string, Blob, ArrayBuffer, or url */
@@ -9,6 +9,6 @@ export interface StitchFramesRequestConfig {
   videoExtension: FramoVideoExtension;
   /** @description Duration for each frame in seconds*/
   frameDuration?: number;
-  /** @description Change the resolution of final video */
-  resolution?: FramoResolution;
+  /** @description Extra options for if you need granular control over your operation */
+  extras?: FramoSupplementaryConfig;
 }

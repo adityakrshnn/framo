@@ -1,5 +1,5 @@
 import { StitchFramesRequestConfig } from "../models/frame-stitcher.model";
-import { SingleOutputParametersResponse } from "../models/generic.model";
+import { Presets, SingleOutputParametersResponse } from "../models/generic.model";
 import { Utility } from "../utility/utility";
 import { FfmpegService } from "./ffmpeg.service";
 
@@ -35,9 +35,9 @@ export class FrameStitcherService {
   }
 
   getParameters = (config: StitchFramesRequestConfig, inputFilenameTemplate: string): SingleOutputParametersResponse => {
-    const outputFilename = `out_${config.videoExtension}`;
+    const outputFilename = `out.${config.videoExtension}`;
     const framerate = config.frameDuration ? (1 / config.frameDuration).toFixed(2) : outputFPS;
-    const inParameters = ['-framerate', `${framerate}`, '-i', inputFilenameTemplate, '-r', `${outputFPS}`, '-pix_fmt', 'yuv420p'];
+    const inParameters = ['-framerate', `${framerate}`, '-i', inputFilenameTemplate, '-r', `${outputFPS}`, '-pix_fmt', 'yuv420p', '-preset', config.extras?.preset ?? Presets.SUPERFAST];
     const outParameters = [outputFilename];
     const auxillaryParameters = ["-y"];
 

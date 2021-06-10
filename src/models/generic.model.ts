@@ -24,3 +24,19 @@ export interface SingleOutputParametersResponse {
   parameters: string[];
   outputFilename: string;
 }
+
+export interface FramoSupplementaryConfig {
+  preset?: Presets;
+}
+
+export enum Presets {
+  ULTRAFAST = "ultrafast",
+  SUPERFAST = "superfast",
+  VERYFAST = "veryfast",
+  FASTER = "faster",
+  FAST = "fast",
+  MEDIUM = "medium",
+  SLOW = "slow",
+  SLOWER = "slower",
+  VERYSLOW = "veryslow",
+}
