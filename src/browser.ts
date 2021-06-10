@@ -2,9 +2,9 @@ import { Main } from "./main";
 import { FilmstripOrientation, FilmstripRequestConfig } from "./models/filmstrip.model";
 import { ExtractFramesRequestConfig } from "./models/frame-extractor.model";
 import { StitchFramesRequestConfig } from "./models/frame-stitcher.model";
-import { FramoImageExtension, FramoVideoExtension, Progress } from "./models/generic.model";
+import { FramoImageExtension, FramoResolution, FramoSupplementaryConfig, FramoVideoExtension, Presets, Progress } from "./models/generic.model";
 import { FfmpegService } from "./services/ffmpeg.service";
-export { ExtractFramesRequestConfig as FrameRequestConfig, FramoImageExtension, FramoVideoExtension, Progress, FilmstripOrientation, FilmstripRequestConfig, StitchFramesRequestConfig };
+export { ExtractFramesRequestConfig, FramoImageExtension, FramoVideoExtension, Progress, FilmstripOrientation, FilmstripRequestConfig, StitchFramesRequestConfig, FramoSupplementaryConfig, Presets, FramoResolution };
 
 export class Framo {
   private _ffmpegService = FfmpegService.getInstance();
