@@ -1,6 +1,6 @@
 {
   "name": "framo",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Glorious media processing right in your browser with Typescript support",
   "author": "Aditya Krishnan <adityakrshnn@gmail.com>",
   "repository": "https://github.com/adityakrshnn/framo",
