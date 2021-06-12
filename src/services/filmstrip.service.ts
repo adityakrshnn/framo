@@ -33,12 +33,8 @@ export class FilmstripService {
 
   getParameters = (config: FilmstripRequestConfig, mediainfo: Mediainfo): SingleOutputParametersResponse => {
     const auxillaryParameters = ["-y"];
-    let parametersResponse: SingleOutputParametersResponse = {
-      parameters: [],
-      outputFilename: '',
-    };
 
-    parametersResponse = this.getTimeIntervalBasedParameters(config, mediainfo)
+    const parametersResponse = this.getTimeIntervalBasedParameters(config, mediainfo)
 
     const response: SingleOutputParametersResponse = {
       parameters: [...parametersResponse.parameters, ...auxillaryParameters],
@@ -54,7 +50,7 @@ export class FilmstripService {
     const selectTime = `select=not(mod(n\\,${config.timeInterval!})),`;
     const scale = config.resolution ? `${Utility.getScale(config.resolution)},` : '';
     const tiles = Utility.getFilmstripTileString(totalFramesInFilmstrip, config);
-    const vfString = `${selectTime}${scale}${tiles}`
+    const vfString = `${selectTime}${scale}${tiles}`;
 
     const inParameters: string[] = ['-i', config.filename, '-frames', '1', '-vf', vfString];
     const outParameters: string[] = [outputFilename];
