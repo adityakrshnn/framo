@@ -107,7 +107,7 @@ export class FrameExtractorService {
     const frameCount = Utility.getFrameCount(mediainfo);
     console.log(frameCount);
     const interval = config.timeInterval!;
-    const rate = (1 / interval ?? 1).toFixed(2);
+    const rate = (1 / (interval ?? 1)).toFixed(2);
     const scale = config.resolution ? Utility.getScale(config.resolution) : '';
     const inParameters = this.getInParametersForIntervalBasedExtraction(config.filename, rate, scale);
     const outParameters: string[] = [`out_%0${outputFileDigits}d.${config.outputExtension}`];

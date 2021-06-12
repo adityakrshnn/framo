@@ -12,11 +12,11 @@ export class Utility {
   }
 
   static getFrameCount(mediainfoResult: Mediainfo): number {
-    return parseInt(mediainfoResult.media?.track[0]?.FrameCount, 10) ?? 0;
+    return parseInt(mediainfoResult.media?.track[0]?.FrameCount ?? 0, 10);
   }
 
   static getVideoDuration(mediainfoResult: Mediainfo): number {
-    return parseFloat(mediainfoResult.media?.track[0]?.Duration) ?? 0.0;
+    return parseFloat(mediainfoResult.media?.track[0]?.Duration ?? '0');
   }
 
   static getOutputFilename(index: number, extension: FramoImageExtension): string {

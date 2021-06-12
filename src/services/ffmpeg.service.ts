@@ -85,7 +85,8 @@ export class FfmpegService extends EventTarget {
         const reader = new FileReader()
         reader.onload = (event) => {
           if (event.target?.error) {
-            reject(event.target.error)
+            reject(event.target.error);
+            return;
           }
           resolve(new Uint8Array(<ArrayBuffer>(event.target!.result)))
         }
