@@ -31,7 +31,7 @@
     "esbuild-browser": "esbuild src/browser.ts --bundle --minify-whitespace --minify-syntax --target=es6 --format=cjs --outfile=dist/esbuild/browser.js",
     "esbuild-browser:dev": "esbuild src/browser.ts --bundle --target=es6 --format=cjs --outfile=dist/esbuild/browser.js",
     "esbuild-browser:watch": "esbuild src/browser.ts --bundle --target=es6 --format=cjs --watch --outfile=dist/esbuild/browser.js",
-    "release": "dotenv release-it --only-version"
+    "release": "npm run bp && dotenv release-it --only-version"
   },
   "devDependencies": {
     "@types/ffmpeg": "^1.0.4",
